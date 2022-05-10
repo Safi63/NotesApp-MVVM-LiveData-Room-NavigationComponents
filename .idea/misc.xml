@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Kotlin Projects/NotesApp/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Kotlin Projects/NotesApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.16" />
+        <entry key="..\:/Kotlin Projects/NotesApp/app/src/main/res/layout/fragment_edit_notes.xml" value="0.1526293287729799" />
+        <entry key="..\:/Kotlin Projects/NotesApp/app/src/main/res/layout/fragment_home.xml" value="0.14641885766092474" />
       </map>
     </option>
   </component>
