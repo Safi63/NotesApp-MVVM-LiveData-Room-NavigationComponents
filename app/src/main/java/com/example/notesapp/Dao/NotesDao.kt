@@ -17,5 +17,5 @@ interface NotesDao {
     fun deleteNotes(id:Int)
 
     @Update
-    fun updateNotes(notes: Notes)//
+    fun updateNotes(notes: Notes)
 }
