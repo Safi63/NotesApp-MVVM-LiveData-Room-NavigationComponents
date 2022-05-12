@@ -7,7 +7,7 @@ import com.example.notesapp.Database.NotesDatabase
 import com.example.notesapp.Model.Notes
 import com.example.notesapp.Repository.NotesRepository
 
-abstract class NotesViewModel(application: Application) : AndroidViewModel(application) {
+ class NotesViewModel(application: Application) : AndroidViewModel(application) {
 
      val repository: NotesRepository
 
