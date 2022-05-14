@@ -1,15 +1,15 @@
 package com.example.notesapp.ui.Fragments
 
 import android.os.Bundle
+import android.view.*
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.notesapp.Model.Notes
 import com.example.notesapp.R
 import com.example.notesapp.ViewModel.NotesViewModel
 import com.example.notesapp.databinding.FragmentHomeBinding
@@ -19,6 +19,8 @@ class HomeFragment : Fragment() {
 
     lateinit var binding: FragmentHomeBinding
     val viewModel: NotesViewModel by viewModels()
+    var oldMyNotes = arrayListOf<Notes>()
+    lateinit var adapter: NotesAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,36 +30,47 @@ class HomeFragment : Fragment() {
 
 
         binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
+        setHasOptionsMenu(true)
 
         val staggerGridLayoutManager =
             StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
         binding.rcvAllNotes.layoutManager = staggerGridLayoutManager
 
         viewModel.getNotes().observe(viewLifecycleOwner, { notesList ->
-            binding.rcvAllNotes.adapter = NotesAdapter(requireContext(), notesList)
+            oldMyNotes = notesList as ArrayList<Notes>
+            adapter = NotesAdapter(requireContext(), notesList)
+            binding.rcvAllNotes.adapter = adapter
         })
 
         binding.fitlerHigh.setOnClickListener {
             viewModel.getHighNotes().observe(viewLifecycleOwner, { notesList ->
-                binding.rcvAllNotes.adapter = NotesAdapter(requireContext(), notesList)
+                oldMyNotes = notesList as ArrayList<Notes>
+                adapter = NotesAdapter(requireContext(), notesList)
+                binding.rcvAllNotes.adapter = adapter
             })
         }
 
         binding.fitlerMedium.setOnClickListener {
             viewModel.getMediumNotes().observe(viewLifecycleOwner, { notesList ->
-                binding.rcvAllNotes.adapter = NotesAdapter(requireContext(), notesList)
+                oldMyNotes = notesList as ArrayList<Notes>
+                adapter = NotesAdapter(requireContext(), notesList)
+                binding.rcvAllNotes.adapter = adapter
             })
         }
 
         binding.fitlerLow.setOnClickListener {
             viewModel.getLowNotes().observe(viewLifecycleOwner, { notesList ->
-                binding.rcvAllNotes.adapter = NotesAdapter(requireContext(), notesList)
+                oldMyNotes = notesList as ArrayList<Notes>
+                adapter = NotesAdapter(requireContext(), notesList)
+                binding.rcvAllNotes.adapter = adapter
             })
         }
 
         binding.allNotes.setOnClickListener {
             viewModel.getNotes().observe(viewLifecycleOwner, { notesList ->
-                binding.rcvAllNotes.adapter = NotesAdapter(requireContext(), notesList)
+                oldMyNotes = notesList as ArrayList<Notes>
+                adapter = NotesAdapter(requireContext(), notesList)
+                binding.rcvAllNotes.adapter = adapter
             })
         }
 
@@ -67,6 +80,37 @@ class HomeFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.search_menu,menu)
+        val item = menu.findItem(R.id.app_bar_search)
+        val searchView = item.actionView as SearchView
+        searchView.queryHint = "Enter Notes Here..."
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(p0: String?): Boolean {
+                notesFiltering(p0)
+                return true
+            }
+        })
+
+
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    private fun notesFiltering(p0: String?) {
+        val newFilterdList = arrayListOf<Notes>()
+        for(i in oldMyNotes){
+            if (i.title.contains(p0!!) || i.subTitle.contains(p0!!)){
+                newFilterdList.add(i)
+                }
+        }
+        adapter.filtering(newFilterdList)
+
     }
 
 }
