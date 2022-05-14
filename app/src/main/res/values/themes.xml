@@ -17,4 +17,7 @@
     <style name="Progressbar">
         <item name="colorSecondary">@color/red_color</item>
     </style>
+
+
+
 </resources>

@@ -6,6 +6,7 @@
         <entry key="..\:/Kotlin Projects/NotesApp/app/src/main/res/drawable/btn_filter_shape.xml" value="0.1" />
         <entry key="..\:/Kotlin Projects/NotesApp/app/src/main/res/drawable/edit_txt_shape.xml" value="0.1" />
         <entry key="..\:/Kotlin Projects/NotesApp/app/src/main/res/drawable/green_dot.xml" value="0.1" />
+        <entry key="..\:/Kotlin Projects/NotesApp/app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.1" />
         <entry key="..\:/Kotlin Projects/NotesApp/app/src/main/res/drawable/ic_baseline_done_24.xml" value="0.1665" />
         <entry key="..\:/Kotlin Projects/NotesApp/app/src/main/res/drawable/icon_filter_shape.xml" value="0.1475" />
         <entry key="..\:/Kotlin Projects/NotesApp/app/src/main/res/drawable/no_btn.xml" value="0.1" />
@@ -20,6 +21,7 @@
         <entry key="..\:/Kotlin Projects/NotesApp/app/src/main/res/layout/fragment_edit_notes.xml" value="0.1526293287729799" />
         <entry key="..\:/Kotlin Projects/NotesApp/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Kotlin Projects/NotesApp/app/src/main/res/layout/item_notes.xml" value="0.1" />
+        <entry key="..\:/Kotlin Projects/NotesApp/app/src/main/res/menu/delete_menu.xml" value="0.33" />
       </map>
     </option>
   </component>
