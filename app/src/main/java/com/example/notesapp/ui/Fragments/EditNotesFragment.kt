@@ -4,14 +4,17 @@ import android.os.Bundle
 import android.text.format.DateFormat
 import android.util.Log
 import android.view.*
+import android.widget.PopupMenu
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.constraintlayout.helper.widget.MotionEffect
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.navigation.ui.NavigationUI.navigateUp
 import com.example.notesapp.Model.Notes
 import com.example.notesapp.R
 import com.example.notesapp.ViewModel.NotesViewModel
@@ -128,14 +131,13 @@ class EditNotesFragment : Fragment() {
             textViewYes?.setOnClickListener {
                 viewModel.deleteNotes(oldNotes.data.id!!)
                 bottomSheet.dismiss()
+                findNavController().navigate(R.id.homeFragment)
                 Toast.makeText(requireContext(),"Note Deleted Successfully", Toast.LENGTH_SHORT).show()
-
             }
 
             textViewNo?.setOnClickListener {
                 bottomSheet.dismiss()
             }
-
             bottomSheet.show()
 
         }
