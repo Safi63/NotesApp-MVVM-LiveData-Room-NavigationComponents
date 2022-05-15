@@ -1,10 +1,12 @@
 package com.example.notesapp.ui.Fragments
 
 import android.os.Bundle
+import android.text.method.TextKeyListener.clear
 import android.view.*
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,7 +37,6 @@ class HomeFragment : Fragment() {
         val staggerGridLayoutManager =
             StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
         binding.rcvAllNotes.layoutManager = staggerGridLayoutManager
-
         viewModel.getNotes().observe(viewLifecycleOwner, { notesList ->
             oldMyNotes = notesList as ArrayList<Notes>
             adapter = NotesAdapter(requireContext(), notesList)
@@ -51,6 +52,7 @@ class HomeFragment : Fragment() {
         }
 
         binding.fitlerMedium.setOnClickListener {
+
             viewModel.getMediumNotes().observe(viewLifecycleOwner, { notesList ->
                 oldMyNotes = notesList as ArrayList<Notes>
                 adapter = NotesAdapter(requireContext(), notesList)
@@ -110,7 +112,6 @@ class HomeFragment : Fragment() {
                 }
         }
         adapter.filtering(newFilterdList)
-
     }
 
 }

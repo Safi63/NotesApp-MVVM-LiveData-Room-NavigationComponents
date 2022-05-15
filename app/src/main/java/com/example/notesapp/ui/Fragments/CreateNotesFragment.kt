@@ -63,7 +63,7 @@ class CreateNotesFragment : Fragment() {
     private fun createNotes(it: View?) {
         val title = binding.editTitle.text.toString()
         val subTitle = binding.editSubtitle.text.toString()
-        val notes = binding.editNotes.text.toString()
+//        val notes = binding.editNotes.text.toString()
 
         val d = Date()
         val notesDate: CharSequence = DateFormat.format("MMMM d, yyyy", d.time)
@@ -73,7 +73,7 @@ class CreateNotesFragment : Fragment() {
             null,
             title = title,
             subTitle = subTitle,
-            notes = notes,
+//            notes = notes,
             date = notesDate.toString(),
             priority
         )

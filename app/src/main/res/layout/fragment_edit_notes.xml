@@ -13,6 +13,8 @@
         android:paddingStart="10dp"
         android:paddingEnd="10dp">
 
+
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,18 +23,6 @@
             android:background="@drawable/edit_txt_shape"
             android:padding="15dp"
             android:hint="Title.."
-            android:maxLines="1"
-            android:fontFamily="@font/regular"
-            android:textColorHint="#D1D1D1"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:id="@+id/editSubtitle"
-            android:background="@drawable/edit_txt_shape"
-            android:padding="15dp"
-            android:hint="Subtitle.."
             android:maxLines="1"
             android:fontFamily="@font/regular"
             android:textColorHint="#D1D1D1"/>
@@ -68,14 +58,28 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="350dp"
-            android:fontFamily="@font/regular"
             android:layout_marginTop="10dp"
-            android:id="@+id/editNotes"
+            android:gravity="start"
+            android:id="@+id/editSubtitle"
             android:background="@drawable/edit_txt_shape"
             android:padding="15dp"
-            android:hint="Notes.."
-            android:gravity="start"
+            android:hint="Write note here.."
+            android:fontFamily="@font/regular"
             android:textColorHint="#D1D1D1"/>
+
+
+
+<!--        <EditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="350dp"-->
+<!--            android:fontFamily="@font/regular"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:id="@+id/editNotes"-->
+<!--            android:background="@drawable/edit_txt_shape"-->
+<!--            android:padding="15dp"-->
+<!--            android:hint="Notes.."-->
+<!--            android:gravity="start"-->
+<!--            android:textColorHint="#D1D1D1"/>-->
 
     </LinearLayout>
 

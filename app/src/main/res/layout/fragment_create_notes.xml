@@ -21,23 +21,10 @@
             android:id="@+id/editTitle"
             android:background="@drawable/edit_txt_shape"
             android:padding="15dp"
-            android:hint="Title.."
+            android:hint="Title..."
             android:maxLines="1"
             android:fontFamily="@font/regular"
             android:textColorHint="#D1D1D1"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:id="@+id/editSubtitle"
-            android:background="@drawable/edit_txt_shape"
-            android:padding="15dp"
-            android:hint="Subtitle.."
-            android:maxLines="1"
-            android:fontFamily="@font/regular"
-            android:textColorHint="#D1D1D1"/>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -68,18 +55,18 @@
 
         </LinearLayout>
 
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="350dp"
+            android:gravity="start"
             android:layout_marginTop="10dp"
-            android:id="@+id/editNotes"
+            android:id="@+id/editSubtitle"
             android:background="@drawable/edit_txt_shape"
             android:padding="15dp"
-            android:hint="Notes.."
-            android:gravity="start"
+            android:hint="Note here..."
             android:fontFamily="@font/regular"
             android:textColorHint="#D1D1D1"/>
-
     </LinearLayout>
 
 

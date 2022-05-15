@@ -27,7 +27,6 @@ class EditNotesFragment : Fragment() {
     var priority: String = "1"
     val viewModel : NotesViewModel by viewModels()
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,7 +37,7 @@ class EditNotesFragment : Fragment() {
 
         binding.editTitle.setText(oldNotes.data.title)
         binding.editSubtitle.setText(oldNotes.data.subTitle)
-        binding.editNotes.setText(oldNotes.data.notes)
+//        binding.editNotes.setText(oldNotes.data.notes)
 
         when(oldNotes.data.priority){
             "1"->{
@@ -91,7 +90,7 @@ class EditNotesFragment : Fragment() {
 
         val title = binding.editTitle.text.toString()
         val subTitle = binding.editSubtitle.text.toString()
-        val notes = binding.editNotes.text.toString()
+//        val notes = binding.editNotes.text.toString()
 
         val d = Date()
         val notesDate: CharSequence = DateFormat.format("MMMM d, yyyy", d.time)
@@ -101,7 +100,7 @@ class EditNotesFragment : Fragment() {
             oldNotes.data.id,
             title = title,
             subTitle = subTitle,
-            notes = notes,
+//            notes = notes,
             date = notesDate.toString(),
             priority
         )
@@ -111,6 +110,7 @@ class EditNotesFragment : Fragment() {
         Navigation.findNavController(it!!).navigate(R.id.action_editNotesFragment_to_homeFragment)
 
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.delete_menu,menu)
@@ -128,6 +128,8 @@ class EditNotesFragment : Fragment() {
             textViewYes?.setOnClickListener {
                 viewModel.deleteNotes(oldNotes.data.id!!)
                 bottomSheet.dismiss()
+                Toast.makeText(requireContext(),"Note Deleted Successfully", Toast.LENGTH_SHORT).show()
+
             }
 
             textViewNo?.setOnClickListener {

@@ -12,7 +12,7 @@ class Notes (
     var id: Int? = null,
     var title:String,
     var subTitle:String,
-    var notes:String,
+//    var notes:String,
     var date:String,
     var priority:String,
 ) : Parcelable
